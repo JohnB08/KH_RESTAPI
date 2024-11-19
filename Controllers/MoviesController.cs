@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MovieAPI.Model;
 using MovieAPI.DatabaseContext;
+using System.Linq.Expressions;
 
 namespace MovieAPI.Controllers
 {
@@ -12,9 +13,9 @@ namespace MovieAPI.Controllers
 
 
         [HttpGet]
-        public IEnumerable<Movies> Get()
+        public IEnumerable<Movies> Get([FromQuery] QueryBody body)
         {
-            return [.. context.Movies];
+            return [.. context.Movies.Where(body.ToPredicate<Movies>())];
         }
 
         // Lager Overloads av Get ved å introdusere varianter med parametere fra route. 

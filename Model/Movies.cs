@@ -1,4 +1,3 @@
-using MovieAPI.DatabaseContext;
 
 namespace MovieAPI.Model;
 
