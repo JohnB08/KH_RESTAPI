@@ -1,3 +1,7 @@
+using MovieAPI.DatabaseContext;
+
+namespace MovieAPI.Model;
+
 public class Movies
 {
     public int Id { get; set; }
@@ -8,3 +12,5 @@ public class Movies
     public int ReleaseYear { get; set; }
 
 }
+
+

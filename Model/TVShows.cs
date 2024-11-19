@@ -1,3 +1,5 @@
+namespace MovieAPI.Model;
+
 public class TVShows
 {
     public int Id { get; set; }
