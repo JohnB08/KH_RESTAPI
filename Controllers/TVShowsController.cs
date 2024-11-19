@@ -11,9 +11,9 @@ namespace MovieAPI.Controllers
 
 
         [HttpGet]
-        public IEnumerable<TVShows> Get([FromQuery] QueryBody body)
+        public IEnumerable<TVShows> Get([FromQuery] QueryBody<TVShows> body)
         {
-            return [.. context.TVShows.Where(body.ToPredicate<TVShows>())];
+            return [.. context.TVShows.Where(body.ToPredicate())];
         }
 
         // Lager Overloads av Get ved å introdusere varianter med parametere fra route. 

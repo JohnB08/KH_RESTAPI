@@ -10,12 +10,11 @@ namespace MovieAPI.Controllers
 
     public class MoviesController(AppDbContext context) : ControllerBase
     {
-
-
+        
         [HttpGet]
-        public IEnumerable<Movies> Get([FromQuery] QueryBody body)
+        public IEnumerable<Movies> Get([FromQuery] QueryBody<Movies> body)
         {
-            return [.. context.Movies.Where(body.ToPredicate<Movies>())];
+            return [.. context.Movies.Where(body.ToPredicate())];
         }
 
         // Lager Overloads av Get ved å introdusere varianter med parametere fra route. 
