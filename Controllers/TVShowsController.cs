@@ -8,12 +8,19 @@ namespace MovieAPI.Controllers
     [Route("tvshows")]
     public class TVShowsController(AppDbContext context) : ControllerBase
     {
-        
+
 
         [HttpGet]
         public IEnumerable<TVShows> Get()
         {
             return [.. context.TVShows];
+        }
+
+        // Lager Overloads av Get ved å introdusere varianter med parametere fra route. 
+        [HttpGet("{id}")]
+        public IEnumerable<TVShows> Get(int id)
+        {
+            return [.. context.TVShows.Where(t => t.Id == id)];
         }
 
         [HttpPost]

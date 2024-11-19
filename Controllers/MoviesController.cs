@@ -16,6 +16,8 @@ namespace MovieAPI.Controllers
         {
             return [.. context.Movies];
         }
+
+        // Lager Overloads av Get ved å introdusere varianter med parametere fra route. 
         [HttpGet("{id}")]
         public IEnumerable<Movies> Get(int id)
         {
